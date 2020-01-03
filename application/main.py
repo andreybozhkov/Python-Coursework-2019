@@ -1,4 +1,5 @@
 from colli import Colli
+from trailer import Trailer
 
 def getInputFromUser(prop):
     inputFromUser = input(f'Enter {prop}: ')
@@ -17,9 +18,10 @@ def makeTempColli():
     tempColli = {
         'length': 0,
         'width': 0,
-        'height': 0
+        'height': 0,
+        'weight': 0
     }
-    colliProperties = ['length', 'width', 'height']
+    colliProperties = ['length', 'width', 'height', 'weight']
 
     for prop in colliProperties:
         value = getInputFromUser(prop)
@@ -30,22 +32,29 @@ def makeTempColli():
     return tempColli
 
 def makeNewColli(tempColli):
-    newColli = Colli(tempColli['length'], tempColli['width'], tempColli['height'])
+    newColli = Colli(tempColli['length'], tempColli['width'], tempColli['height'], tempColli['weight'])
     newColli.calcCBM()
     newColli.calcLDM()
     return newColli
 
-sequenceNr = 1
+collieSequenceNr = 1
 collis = []
 
 while True:
-    print(f'Enter dimensions (number integer or float) for colli nr {sequenceNr}. If you wish to stop, type "end" instead and hit enter.')
+    print(f'Enter dimensions and weight (number integer or float) for colli nr {collieSequenceNr}. If you wish to stop, type "end" instead and hit enter.')
 
     try:
         tempColli = makeTempColli()
     except Exception:
-        print('Thank you! Goodbye! :)')
         break
 
     collis.append(makeNewColli(tempColli))
-    sequenceNr += 1
+    collieSequenceNr += 1
+
+if len(collis) < 1:
+    print('There are no collis. In order to continue, please restart and enter data for at least 1 colli.')
+    print('Thank you! Goodbye! :)')
+    raise SystemExit
+
+trailerSequenceNr = 100
+trailers = []

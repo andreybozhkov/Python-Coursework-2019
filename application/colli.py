@@ -5,10 +5,11 @@ def roundUp(n, decimals = 0):
     return math.ceil(n * multiplier) / multiplier
 
 class Colli:
-    def __init__(self, length, width, height):
+    def __init__(self, length, width, height, weight):
         self.length = length
         self.width = width
         self.height = height
+        self.weight = weight
         self.cbm = 0
         self.ldm = 0
 
