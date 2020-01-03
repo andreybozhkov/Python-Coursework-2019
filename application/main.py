@@ -37,6 +37,12 @@ def makeNewColli(tempColli):
     newColli.calcLDM()
     return newColli
 
+def checkForCollis(collis):
+    if len(collis) < 1:
+        print('There are no collis. In order to continue, please restart and enter data for at least 1 colli.')
+        print('Thank you! Goodbye! :)')
+    raise SystemExit
+
 collieSequenceNr = 1
 collis = []
 
@@ -51,10 +57,7 @@ while True:
     collis.append(makeNewColli(tempColli))
     collieSequenceNr += 1
 
-if len(collis) < 1:
-    print('There are no collis. In order to continue, please restart and enter data for at least 1 colli.')
-    print('Thank you! Goodbye! :)')
-    raise SystemExit
+checkForCollis(collis)
 
 trailerSequenceNr = 100
 trailers = []
