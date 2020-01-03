@@ -75,9 +75,13 @@ while len(collis) > 0:
             collis.remove(collis[0])
         else:
             addTrailer(trailerSequenceNr)
+            trailerSequenceNr += 1
             trailers[len(trailers) - 1].addColli(collis[0])
             collis.remove(collis[0])
             break
 
 if len(collis) == 0:
-    print('No collis left.')
+    print('All collis have been distributed to trailers.')
+
+for trailer in trailers:
+    trailer.printCollis()
