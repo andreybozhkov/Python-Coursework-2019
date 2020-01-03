@@ -41,13 +41,19 @@ def checkForCollis(collis):
     if len(collis) < 1:
         print('There are no collis. In order to continue, please restart and enter data for at least 1 colli.')
         print('Thank you! Goodbye! :)')
-    raise SystemExit
+        raise SystemExit
+    else:
+        addTrailer(trailerSequenceNr)
 
-collieSequenceNr = 1
+def addTrailer(nr):
+    trailerNr = f'ABC{nr}'
+    trailers.append(Trailer(trailerNr))
+
+colliSequenceNr = 1
 collis = []
 
 while True:
-    print(f'Enter dimensions and weight (number integer or float) for colli nr {collieSequenceNr}. If you wish to stop, type "end" instead and hit enter.')
+    print(f'Enter dimensions and weight (number integer or float) for colli nr {colliSequenceNr}. If you wish to stop, type "end" instead and hit enter.')
 
     try:
         tempColli = makeTempColli()
@@ -55,9 +61,10 @@ while True:
         break
 
     collis.append(makeNewColli(tempColli))
-    collieSequenceNr += 1
-
-checkForCollis(collis)
+    colliSequenceNr += 1
 
 trailerSequenceNr = 100
 trailers = []
+
+checkForCollis(collis)
+trailerSequenceNr += 1

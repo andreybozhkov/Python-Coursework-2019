@@ -1,6 +1,6 @@
 class Trailer:
     def __init__(self, plateNr):
-        self.plateNr = ''
+        self.plateNr = plateNr
         self.ldm = 0
         self.ldmLimit = 13.6
         self.weight = 0
