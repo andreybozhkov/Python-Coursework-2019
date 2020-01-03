@@ -10,12 +10,12 @@ class Trailer:
     def addColli(self, colli):
         if (self.ldm + colli.ldm > self.ldmLimit):
             print('Cannot add current colli to trailer. Exceeds LDM limit.')
+            return 0
         elif (self.weight + colli.weight > self.weightLimit):
             print('Cannot add current colli to trailer. Exceeds weight limit.')
+            return 0
         else:
             self.collis.append(colli)
             self.ldm += colli.ldm
             self.weight += colli.weight
-            print(self.ldm)
-            print(self.weight)
-            print(self.collis[0])
+            return 1

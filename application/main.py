@@ -68,3 +68,16 @@ trailers = []
 
 checkForCollis(collis)
 trailerSequenceNr += 1
+
+while len(collis) > 0:
+    for trailer in trailers:
+        if trailer.addColli(collis[0]) == 1:
+            collis.remove(collis[0])
+        else:
+            addTrailer(trailerSequenceNr)
+            trailers[len(trailers) - 1].addColli(collis[0])
+            collis.remove(collis[0])
+            break
+
+if len(collis) == 0:
+    print('No collis left.')
