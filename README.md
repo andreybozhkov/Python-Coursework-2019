@@ -1,2 +1,2 @@
-# hackerrank-python-practice
+# BFU Python Coursework 2020
  
